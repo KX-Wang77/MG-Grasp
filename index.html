@@ -8,7 +8,7 @@
   <meta name="title" content="MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations">
   <meta name="description" content="A depth-free 6-DoF grasping framework that reconstructs metric-scale, multi-view consistent geometry from sparse RGB views for reliable robotic grasp generation.">
   <meta name="keywords" content="6-DoF grasping, RGB-only grasping, robotic manipulation, multi-view reconstruction, metric-scale geometry, sparse RGB observations, point cloud reconstruction, grasp detection">
-  <meta name="author" content="AUTHOR_1, AUTHOR_2, AUTHOR_3">
+  <meta name="author" content="Kangxu Wang, Siang Chen, Chenxing Jiang, Shaojie Shen, Yixiang Dai, Guijin Wang">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
@@ -23,7 +23,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="MG-Grasp - Research Preview">
   <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
-  <meta property="article:author" content="AUTHOR_1">
+  <meta property="article:author" content="Kangxu Wang">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="6-DoF Grasping">
   <meta property="article:tag" content="RGB-only Robotics">
@@ -39,10 +39,13 @@
 
   <!-- Academic/Research Specific -->
   <meta name="citation_title" content="MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations">
-  <meta name="citation_author" content="AUTHOR_1_LAST, AUTHOR_1_FIRST">
-  <meta name="citation_author" content="AUTHOR_2_LAST, AUTHOR_2_FIRST">
+  <meta name="citation_author" content="Wang, Kangxu">
+  <meta name="citation_author" content="Chen, Siang">
+  <meta name="citation_author" content="Jiang, Chenxing">
+  <meta name="citation_author" content="Shen, Shaojie">
+  <meta name="citation_author" content="Dai, Yixiang">
+  <meta name="citation_author" content="Wang, Guijin">
   <meta name="citation_publication_date" content="2026">
-  <meta name="citation_conference_title" content="TO_BE_FILLED">
   <meta name="citation_pdf_url" content="static/pdfs/MG_Grasp.pdf">
 
   <!-- Additional SEO -->
@@ -98,28 +101,14 @@
     "headline": "MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations",
     "description": "A depth-free 6-DoF grasping framework that reconstructs metric-scale, multi-view consistent geometry from sparse RGB views for reliable robotic grasp generation.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "AUTHOR_1",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_1"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "AUTHOR_2",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_2"
-        }
-      }
+      { "@type": "Person", "name": "Kangxu Wang", "affiliation": { "@type": "Organization", "name": "YOUR_INSTITUTION" } },
+      { "@type": "Person", "name": "Siang Chen", "affiliation": { "@type": "Organization", "name": "YOUR_INSTITUTION" } },
+      { "@type": "Person", "name": "Chenxing Jiang", "affiliation": { "@type": "Organization", "name": "YOUR_INSTITUTION" } },
+      { "@type": "Person", "name": "Shaojie Shen", "affiliation": { "@type": "Organization", "name": "YOUR_INSTITUTION" } },
+      { "@type": "Person", "name": "Yixiang Dai", "affiliation": { "@type": "Organization", "name": "YOUR_INSTITUTION" } },
+      { "@type": "Person", "name": "Guijin Wang", "affiliation": { "@type": "Organization", "name": "YOUR_INSTITUTION" } }
     ],
     "datePublished": "2026-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "TO_BE_FILLED"
-    },
     "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
     "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
     "keywords": [
@@ -199,13 +188,8 @@
               </div>
 
               <div class="is-size-5 publication-authors">
-                <span class="author-block">YOUR_INSTITUTION<br>Conference / Journal</span>
+                <span class="author-block">YOUR_INSTITUTION</span>
                 <span class="eql-cntrb"><small><br><sup>†</sup>Corresponding Author</small></span>
-              </div>
-
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">Your Institution<br>Conference / Journal</span>
-                <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
               </div>
 
               <div class="column has-text-centered">
@@ -262,11 +246,11 @@
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <video poster="static/images/teaser_poster.jpg" id="teaser-video" autoplay controls muted loop height="100%" preload="metadata">
-            <source src="static/videos/banner_video.mp4" type="video/mp4">
+          <video id="teaser-video" autoplay controls muted loop playsinline height="100%" preload="metadata">
+            <source src="static/videos/video_pipe.mp4" type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered">
-            MG-Grasp reconstructs metric-scale, multi-view consistent geometry from sparse RGB observations and generates reliable 6-DoF grasps without using depth sensors.
+            Overview of MG-Grasp. From sparse RGB observations, our system reconstructs grasp-oriented geometry and produces reliable metric-scale 6-DoF grasp poses.
           </h2>
         </div>
       </div>
@@ -283,6 +267,21 @@
                 We present MG-Grasp, a depth-free 6-DoF grasping framework that derives high-quality grasps directly from sparse multi-view RGB observations. Instead of treating reconstruction as a separate preprocessing step, MG-Grasp couples metric scale recovery, multi-view consistency refinement, and grasp generation into a unified pipeline for reliable robotic manipulation. Given sparse posed RGB images with known camera intrinsics and extrinsics, the method first converts up-to-scale two-view predictions into metric depth through triangulation-based scale grounding, and then refines all views using a two-stage confidence-weighted multi-view optimization. The refined geometry is fused into a grasp-oriented point cloud for stable 6-DoF grasp generation. Experiments on GraspNet-1Billion and real-world robotic setups show that MG-Grasp achieves state-of-the-art performance among RGB-based 6-DoF grasping methods while operating without depth sensors.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Framework Overview -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths has-text-centered">
+            <h2 class="title is-3">Framework Overview</h2>
+            <img src="static/videos/pipeline.png" alt="MG-Grasp pipeline" style="width: 100%; max-width: 1100px; border-radius: 12px;" />
+            <p class="subtitle has-text-centered" style="margin-top: 1rem;">
+              Overall pipeline of MG-Grasp: metric-scale depth generation, multi-view refinement, and 6-DoF grasp generation from sparse RGB observations.
+            </p>
           </div>
         </div>
       </div>
@@ -307,35 +306,34 @@
       </div>
     </section>
 
-    <!-- Image carousel -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <div id="image-carousel" class="carousel results-carousel">
-            <div class="item">
-              <img src="static/images/pipeline.png" alt="Overall pipeline of MG-Grasp" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Overall pipeline of MG-Grasp: metric-scale depth generation, multi-view refinement, and 6-DoF grasp generation.
-              </h2>
-            </div>
-            <div class="item">
-              <img src="static/images/scale_recovery.png" alt="Triangulation-based scale recovery" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Triangulation-based scale recovery grounds up-to-scale predictions into a shared physical coordinate system.
-              </h2>
-            </div>
-            <div class="item">
-              <img src="static/images/refinement.png" alt="Multi-view refinement results" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Multi-view refinement removes cross-view misalignment and improves geometric consistency for grasp reasoning.
-              </h2>
-            </div>
-            <div class="item">
-              <img src="static/images/results_overview.png" alt="Benchmark and real-world results" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                MG-Grasp achieves strong RGB-only grasping performance on GraspNet and real-world tabletop scenes.
-              </h2>
-            </div>
+    <!-- 6-DoF Pose Generation -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">6-DoF Pose Generation</h2>
+        <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+          Qualitative examples of generated 6-DoF grasp poses from MG-Grasp.
+        </p>
+
+        <div class="columns is-multiline is-centered">
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/grasp_0100.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/grasp_0105.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/grasp_0108.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/grasp_0110.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -429,62 +427,53 @@
       </div>
     </section>
 
-    <!-- Runtime -->
+    <!-- Real-World Robot Experiments -->
+    <section class="section is-light">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Real-World Robot Experiments</h2>
+        <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+          Real-robot grasping demonstrations in tabletop scenes using sparse RGB observations.
+        </p>
+
+        <div class="columns is-multiline is-centered">
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/Scene_01.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/Scene_02.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/Scene_03.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/Scene_04.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparent Object Grasping -->
     <section class="section">
       <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Transparent Object Grasping</h2>
+        <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+          MG-Grasp also generalizes to transparent-object grasping scenarios in real-world experiments.
+        </p>
+
         <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Runtime Analysis</h2>
-            <div class="content has-text-justified">
-              <p>
-                MG-Grasp runs with seconds-level latency. The total inference time is 2.86 seconds on average, with most computation spent on geometry matching and multi-view refinement.
-              </p>
-              <table class="table is-fullwidth is-striped is-hoverable">
-                <thead>
-                  <tr>
-                    <th>Module</th>
-                    <th>Time (s)</th>
-                    <th>Ratio (%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>MobileSAM masking</td><td>0.06</td><td>2.1</td></tr>
-                  <tr><td>Depth Aggregation and Correspondence</td><td>0.87</td><td>30.5</td></tr>
-                  <tr><td>Triangulation-based Scale Recovery</td><td>0.11</td><td>3.8</td></tr>
-                  <tr><td>Multi-View Refinement</td><td>1.34</td><td>46.8</td></tr>
-                  <tr><td>Grasp-aware Guidance</td><td>0.05</td><td>1.6</td></tr>
-                  <tr><td>Grasp Generation</td><td>0.30</td><td>10.6</td></tr>
-                  <tr><td><strong>Total</strong></td><td><strong>2.86</strong></td><td><strong>100.0</strong></td></tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="column is-three-quarters">
+            <video controls muted loop playsinline width="100%" preload="metadata">
+              <source src="static/videos/Transparent.mp4" type="video/mp4">
+            </video>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Youtube video -->
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3">Video Presentation</h2>
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-              <div class="publication-video">
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Poster -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title">Poster</h2>
-          <iframe src="static/pdfs/poster.pdf" width="100%" height="550"></iframe>
         </div>
       </div>
     </section>
@@ -499,10 +488,9 @@
             <span class="copy-text">Copy</span>
           </button>
         </div>
-        <pre id="bibtex-code"><code>@article{mggrasp2026,
+        <pre id="bibtex-code"><code>@misc{mggrasp2026,
   title={MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations},
-  author={Author 1 and Author 2 and Author 3},
-  journal={To be filled},
+  author={Kangxu Wang and Siang Chen and Chenxing Jiang and Shaojie Shen and Yixiang Dai and Guijin Wang},
   year={2026},
   url={https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE}
 }</code></pre>
