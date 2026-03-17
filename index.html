@@ -237,9 +237,11 @@
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <video id="teaser-video" autoplay controls muted loop playsinline height="100%" preload="metadata">
-            <source src="static/videos/video_pipe.gif" type="video/gif">
-          </video>
+          <img
+            src="static/videos/video_pipe.gif"
+            alt="Overview of MG-Grasp pipeline"
+            style="width: 100%; border-radius: 12px;"
+          />
           <h2 class="subtitle has-text-centered">
             Overview of MG-Grasp. From sparse RGB observations, our system reconstructs grasp-oriented geometry and produces reliable metric-scale 6-DoF grasp poses.
           </h2>
@@ -425,6 +427,16 @@
         <p class="has-text-centered" style="margin-bottom: 1.5rem;">
           Real-robot grasping demonstrations in tabletop scenes using sparse RGB observations.
         </p>
+
+        <div class="columns is-centered">
+          <div class="column is-four-fifths has-text-centered">
+            <img
+              src="static/videos/video_realpipe.gif"
+              alt="Real-world MG-Grasp workflow"
+              style="width: 100%; max-width: 1000px; border-radius: 12px; margin-bottom: 1.5rem;"
+            />
+          </div>
+        </div>
 
         <div class="columns is-multiline is-centered">
           <div class="column is-half">
