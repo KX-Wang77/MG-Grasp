@@ -18,7 +18,6 @@ This repository hosts the official project page and related media assets for MG-
 
 ![video_realpipe](static/videos/video_realpipe.gif)
 
----
 
 **Code is coming soon.**
 
