@@ -11,7 +11,7 @@
 
 ## Real-World Robot Grasping
 
-![video_realpipe](static/videos/video_realpipe.gif)
+![video_realpipe](static/videos/video_pipe.gif)
 
 
 **Code is coming soon.**
