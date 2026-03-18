@@ -243,7 +243,7 @@
             style="width: 100%; border-radius: 12px;"
           />
           <h2 class="subtitle has-text-centered">
-            Overview of MG-Grasp. From sparse RGB observations, our system reconstructs grasp-oriented geometry and produces reliable metric-scale 6-DoF grasp poses.
+            Overview of MG-Grasp. From sparse RGB observations, our system reconstructs grasp-oriented geometry and produces reliable 6-DoF grasps.
           </h2>
         </div>
       </div>
@@ -257,7 +257,7 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                We present MG-Grasp, a depth-free 6-DoF grasping framework that derives high-quality grasps directly from sparse multi-view RGB observations. Instead of treating reconstruction as a separate preprocessing step, MG-Grasp couples metric scale recovery, multi-view consistency refinement, and grasp generation into a unified pipeline for reliable robotic manipulation. Given sparse posed RGB images with known camera intrinsics and extrinsics, the method first converts up-to-scale two-view predictions into metric depth through triangulation-based scale grounding, and then refines all views using a two-stage confidence-weighted multi-view optimization. The refined geometry is fused into a grasp-oriented point cloud for stable 6-DoF grasp generation. Experiments on GraspNet-1Billion and real-world robotic setups show that MG-Grasp achieves state-of-the-art performance among RGB-based 6-DoF grasping methods while operating without depth sensors.
+                Single-view RGB-D grasp detection remains a common choice in 6-DoF robotic grasping systems, which typically requires a depth sensor. While RGB-only 6-DoF grasp methods has been studied recently, their inaccurate geometric representation is not directly suitable for physically reliable robotic manipulation, thereby hindering reliable grasp generation. To address these limitations, we propose MG-Grasp, a novel depth-free 6-DoF grasping framework that achieves high-quality object grasping. Leveraging two-view 3D foundation model with camera intrinsic/extrinsic, our method reconstructs metric-scale and multi-view consistent dense point clouds from sparse RGB images and generates stable 6-DoF grasp. Experiments on GraspNet-1Billion dataset and real world demonstrate that MG-Grasp achieves state-of-the-art (SOTA) grasp performance among RGB-based 6-DoF grasping methods.
               </p>
             </div>
           </div>
@@ -272,9 +272,6 @@
           <div class="column is-four-fifths has-text-centered">
             <h2 class="title is-3">Framework Overview</h2>
             <img src="static/videos/pipeline.png" alt="MG-Grasp pipeline" style="width: 100%; max-width: 1100px; border-radius: 12px;" />
-            <p class="subtitle has-text-centered" style="margin-top: 1rem;">
-              Overall pipeline of MG-Grasp: metric-scale depth generation, multi-view refinement, and 6-DoF grasp generation from sparse RGB observations.
-            </p>
           </div>
         </div>
       </div>
@@ -309,50 +306,22 @@
 
         <div class="columns is-multiline is-centered">
           <div class="column is-half">
-            <video controls muted loop playsinline width="100%" preload="metadata">
-              <source src="static/videos/grasp_0100.mp4" type="video/mp4">
-            </video>
+            <img src="static/videos/grasp_0100.gif" alt="grasp_0100" style="width: 100%;" />
           </div>
           <div class="column is-half">
-            <video controls muted loop playsinline width="100%" preload="metadata">
-              <source src="static/videos/grasp_0105.mp4" type="video/mp4">
-            </video>
+            <img src="static/videos/grasp_0105.gif" alt="grasp_0105" style="width: 100%;" />
           </div>
           <div class="column is-half">
-            <video controls muted loop playsinline width="100%" preload="metadata">
-              <source src="static/videos/grasp_0108.mp4" type="video/mp4">
-            </video>
+            <img src="static/videos/grasp_0108.gif" alt="grasp_0108" style="width: 100%;" />
           </div>
           <div class="column is-half">
-            <video controls muted loop playsinline width="100%" preload="metadata">
-              <source src="static/videos/grasp_0110.mp4" type="video/mp4">
-            </video>
+            <img src="static/videos/grasp_0110.gif" alt="grasp_0110" style="width: 100%;" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Key Results -->
-    <section class="section is-light">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Key Results</h2>
-            <div class="content has-text-justified">
-              <ul>
-                <li><strong>GraspNet Average AP:</strong> 47.65 / 48.21 on the RealSense / Kinect splits.</li>
-                <li><strong>Improvement over GraspNeRF:</strong> +31.74 / +29.83 average AP on RealSense / Kinect.</li>
-                <li><strong>Improvement over VG-Grasp:</strong> +12.18 / +14.33 average AP.</li>
-                <li><strong>Real Robot Performance:</strong> 87.5% grasp success rate and 100% completion rate.</li>
-                <li><strong>Inference Speed:</strong> 2.86s per inference with 5 views, and 2.13s with 4 views.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Results Table -->
+        <!-- Results Table -->
     <section class="section">
       <div class="container is-max-desktop">
         <h2 class="title is-3 has-text-centered">Benchmark Summary</h2>
@@ -370,6 +339,46 @@
             </thead>
             <tbody>
               <tr>
+                <td>PointnetGPD</td>
+                <td>RGB-D</td>
+                <td>25.96/27.59</td>
+                <td>22.68/24.38</td>
+                <td>9.23/10.66</td>
+                <td>19.29/20.88</td>
+              </tr>
+              <tr>
+                <td>GraspNet</td>
+                <td>RGB-D</td>
+                <td>27.59/29.88</td>
+                <td>26.11/27.84</td>
+                <td>10.55/11.51</td>
+                <td>21.41/23.08</td>
+              </tr>
+              <tr>
+                <td>TransGrasp</td>
+                <td>RGB-D</td>
+                <td>39.81/35.97</td>
+                <td>29.32/29.71</td>
+                <td>13.83/11.41</td>
+                <td>27.65/25.70</td>
+              </tr>
+              <tr>
+                <td>HGGD</td>
+                <td>RGB-D</td>
+                <td>59.36/60.26</td>
+                <td>51.20/48.59</td>
+                <td>22.17/18.43</td>
+                <td>44.24/42.43</td>
+              </tr>
+              <tr>
+                <td><strong>FlexLoG</strong></td>
+                <td><strong>RGB-D</strong></td>
+                <td><strong>72.81/69.44</strong></td>
+                <td><strong>65.21/59.01</strong></td>
+                <td><strong>30.04/23.67</strong></td>
+                <td><strong>56.02/50.67</strong></td>
+              </tr>
+              <tr style="border-top: 3px solid #000;">
                 <td>GraspNeRF</td>
                 <td>RGB</td>
                 <td>22.49/24.61</td>
@@ -399,6 +408,7 @@
       </div>
     </section>
 
+
     <!-- Real-world -->
     <section class="section hero is-light">
       <div class="container is-max-desktop">
@@ -407,7 +417,7 @@
             <h2 class="title is-3">Real-World Robotic Evaluation</h2>
             <div class="content has-text-justified">
               <p>
-                We further validate MG-Grasp on a real robotic platform in tabletop scenes using a UR5e manipulator, a Robotiq 2F-85 adaptive gripper, and a RealSense D435i camera, while only using RGB images. Different from prior single-view real-robot evaluations, MG-Grasp uses 4 sparse RGB views per scene and runs with about 2.13 seconds end-to-end latency.
+                We further validate MG-Grasp on a real robotic platform in tabletop scenes using a UR5e manipulator, a Robotiq 2F-85 adaptive gripper, and a RealSense D435i camera, while only using RGB images. Different from prior single-view real-robot evaluations, MG-Grasp uses 4 sparse RGB views per scene.
               </p>
               <ul>
                 <li><strong>Success Rate:</strong> 35/40 = 87.5%</li>
@@ -425,7 +435,7 @@
       <div class="container is-max-desktop">
         <h2 class="title is-3 has-text-centered">Real-World Robot Experiments</h2>
         <p class="has-text-centered" style="margin-bottom: 1.5rem;">
-          Real-robot grasping demonstrations in tabletop scenes using sparse RGB observations.
+          Real-robot grasping demonstrations in tabletop scenes using 4 RGB observations.
         </p>
 
         <div class="columns is-centered">
@@ -491,11 +501,14 @@
             <span class="copy-text">Copy</span>
           </button>
         </div>
-        <pre id="bibtex-code"><code>@misc{mggrasp2026,
-  title={MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations},
-  author={Kangxu Wang and Siang Chen and Chenxing Jiang and Shaojie Shen and Yixiang Dai and Guijin Wang},
-  year={2026},
-  url={https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE}
+        <pre id="bibtex-code"><code>@misc{wang2026mggraspmetricscalegeometric6dof,
+      title={MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations}, 
+      author={Kangxu Wang and Siang Chen and Chenxing Jiang and Shaojie Shen and Yixiang Dai and Guijin Wang},
+      year={2026},
+      eprint={2603.16270},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2603.16270}, 
 }</code></pre>
       </div>
     </section>
