@@ -1,6 +1,6 @@
-# MG-Grasp
+# MG-Grasp: **Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations**
 
-Official repository for **MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations**.
+![video_pipe](static/videos/video_pipe.gif)
 
 ## Introduction
 
@@ -40,7 +40,12 @@ This repository includes the following visual materials used in the project page
 ### 6-DoF Pose Generation
 ![grasp_0100](static/videos/grasp_0100.gif)
 
+
+
+<video src="static/videos/Scene_01.mp4" controls=""></video>
+
 ### Real-World Workflow
+
 - `static/videos/video_realpipe.gif`
 
 ### Real-World Robot Experiments
